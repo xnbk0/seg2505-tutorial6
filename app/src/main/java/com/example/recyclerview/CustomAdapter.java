@@ -22,7 +22,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        viewHolder.textView.setText(localDataSet[position]);
+        viewHolder.getTextView().setText(localDataSet[position]);
     }
 
     @Override
@@ -30,10 +30,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         return localDataSet.length;
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView;
+        private final TextView textView;
         public ViewHolder(View view) {
             super(view);
             textView = view.findViewById(R.id.textView);
+        }
+        public TextView getTextView() {
+            return textView;
         }
     }
 }
